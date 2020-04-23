@@ -48,6 +48,7 @@ module.exports = function application(
     ])
       .then(([create, seed]) => {
         app.get("/api/debug/reset", (request, response) => {
+          console.log('in /api/debug/reset')
           db.query(create)
             .then(() => db.query(seed))
             .then(() => {
